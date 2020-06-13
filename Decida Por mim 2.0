@@ -1,0 +1,41 @@
+import time
+import random
+
+
+class DecidaPorMim:
+    def __init__(self):
+        self.respostas = [
+            'Sim! Com certeza!',
+            'Acho que não',
+            'Talvez funcione',
+            'Tem certeza disso?',
+            'Eu estava pensando a mesma coisa',
+            'Talvez',
+            'Vai com tudo!',
+            'Ótima idéia!',
+            'Que tal fazer algo diferente?',
+            'Sim!',
+            'Não!',
+            'Tá maluco?'
+        ]
+
+    def Iniciar(self):
+        self.FazerPergunta()
+
+    def FazerPergunta(self):
+        input('Me faça uma pergunta:')
+        print('Estou pensando...')
+        time.sleep(3)
+        print(random.choice(self.respostas))
+        fazer_outra_pergunta = input('Quer fazer outra pergunta? (S/N)')
+        if fazer_outra_pergunta == 's':
+            self.FazerPergunta()
+        elif fazer_outra_pergunta == 'n':
+            print('Obrigado, até mais tarde.')
+        else:
+            print("Favor Digitar 'S' para sim ou 'N' para não")
+            self.FazerPergunta()
+
+
+decida_por_mim = DecidaPorMim()
+decida_por_mim.Iniciar()
